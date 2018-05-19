@@ -1,0 +1,6 @@
+E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter\obj\Debug\Atom.ConfigCenter.csprojResolveAssemblyReference.cache
+E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter\obj\Debug\Atom.ConfigCenter.csproj.CoreCompileInputs.cache
+E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter\bin\Debug\Atom.ConfigCenter.dll
+E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter\bin\Debug\Atom.ConfigCenter.pdb
+E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter\obj\Debug\Atom.ConfigCenter.dll
+E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter\obj\Debug\Atom.ConfigCenter.pdb

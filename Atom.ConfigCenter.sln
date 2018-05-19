@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.ConfigCenter", "Atom.ConfigCenter\Atom.ConfigCenter.csproj", "{0BC41CCA-C919-4D79-824B-41BF758BEE5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.ConfigCenter.Test", "Atom.ConfigCenter.Test\Atom.ConfigCenter.Test.csproj", "{497DB1C0-EE15-4129-99BD-98B43A9DB4CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0BC41CCA-C919-4D79-824B-41BF758BEE5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BC41CCA-C919-4D79-824B-41BF758BEE5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BC41CCA-C919-4D79-824B-41BF758BEE5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BC41CCA-C919-4D79-824B-41BF758BEE5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{497DB1C0-EE15-4129-99BD-98B43A9DB4CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{497DB1C0-EE15-4129-99BD-98B43A9DB4CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{497DB1C0-EE15-4129-99BD-98B43A9DB4CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{497DB1C0-EE15-4129-99BD-98B43A9DB4CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B5D88CBB-EB50-41B8-A22C-17FD720C4486}
+	EndGlobalSection
+EndGlobal
