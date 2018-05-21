@@ -44,6 +44,7 @@
     <Compile Include="AtomConfigCenterManage.cs" />
     <Compile Include="AtomConfigCenterService.cs" />
     <Compile Include="Model\AtomCateConfig.cs" />
+    <Compile Include="Model\AtomConfigModel.cs" />
     <Compile Include="Model\AtomConfig.cs" />
     <Compile Include="Model\AtomConfigValue.cs" />
     <Compile Include="OrmSon\Converter\DataSetConverter.cs" />

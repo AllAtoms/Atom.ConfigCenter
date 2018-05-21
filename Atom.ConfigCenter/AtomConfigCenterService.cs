@@ -16,6 +16,16 @@ namespace Atom.ConfigCenter
             AtomConfigCenterManage.CheckOrCreateDb();
         }
 
+        public string this[string code]
+        {
+            get
+            {
+                var res = AtomConfigCenterManage.Get(code);
+                return res.ConfigValue;
+            }
+        }
+        public static AtomConfigCenterService Conf= new AtomConfigCenterService();
+
         public static long Set(string code, string value, string pCode = null, string desc = null, string cType = null, DateTime? st = null, DateTime? et = null, string extVal = null, bool isAdd = false)
         {
             if (string.IsNullOrWhiteSpace(code))
@@ -58,6 +68,27 @@ namespace Atom.ConfigCenter
             return AtomConfigCenterManage.SetCate(acc, isAdd);
         }
 
+        public static long SetVal(string cateCode, string value, int relId=0, string extVal = null, DateTime? st = null, DateTime? et = null, bool isAdd = false)
+        {
+            if (string.IsNullOrWhiteSpace(cateCode))
+                throw new Exception("编码不可为空");
+            if (string.IsNullOrWhiteSpace(value))
+                throw new Exception("配置值不可为空");
+
+            var acv = new AtomConfigValue
+            {
+                CateCode = cateCode,
+                AddTime = DateTime.Now,
+                CateValue = value,
+                Enable = true,
+                RelId = relId,
+                StartTime = st,
+                EndTime = et,
+                ExtValue = extVal
+            };
+
+            return AtomConfigCenterManage.SetVal(acv, isAdd);
+        }
 
     }
 }

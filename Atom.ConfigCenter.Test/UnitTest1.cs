@@ -8,7 +8,7 @@ namespace Atom.ConfigCenter.Test
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Set()
         {
             AtomConfigCenterService.Init("conn");
 
@@ -20,5 +20,39 @@ namespace Atom.ConfigCenter.Test
 
             Assert.IsTrue(true);
         }
+
+        [TestMethod]
+        public void SetCate()
+        {
+            AtomConfigCenterService.Init("conn");
+
+            var r0 = AtomConfigCenterService.SetCate("排版类型", "schedule");
+            var r1 = AtomConfigCenterService.SetCate("五休二", "schedule_5_2","schedule");
+
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod]
+        public void SetVal()
+        {
+            AtomConfigCenterService.Init("conn");
+
+            var r0 = AtomConfigCenterService.SetVal("schedule", "top1");
+            var r1 = AtomConfigCenterService.SetVal("schedule_5_2", "2");
+
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod]
+        public void Get()
+        {
+            AtomConfigCenterService.Init("conn");
+
+            var r0 = AtomConfigCenterService.Conf["Version"];
+
+            Assert.IsTrue(true);
+        }
+
+
     }
 }

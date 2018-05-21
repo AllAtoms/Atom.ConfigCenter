@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace Atom.ConfigCenter
 {
-    static internal class AtomConfigCenterManage
+    internal static class AtomConfigCenterManage
     {
-        public static readonly object locker = new object();
+        private static readonly object locker = new object();
+
+
 
         public static bool CheckOrCreateDb()
         {
@@ -58,16 +60,29 @@ namespace Atom.ConfigCenter
         {
             lock (locker)
             {
-                var exist = SonFact.Cur.Top<AtomConfigValue>(t => t.CateCode == acv.CateCode && t.RelId == acv.RelId);
-                if (exist != null)
-                {
+                var existCate = SonFact.Cur.Top<AtomCateConfig>(t => t.CateCode == acv.CateCode);
+                if(existCate==null) throw new Exception("配置Cate不存在");
 
+                var exist = SonFact.Cur.Top<AtomConfigValue>(t => t.CateCode == acv.CateCode && t.RelId == acv.RelId);
+                if (exist != null && isAdd) throw new Exception("配置已经存在");
+                if (exist != null && !isAdd)
+                {
+                    acv.ConfigValueId = exist.ConfigValueId;
+                    var result = SonFact.Cur.Update(acv);
+                    return Convert.ToInt64(result);
                 }
 
                 return SonFact.Cur.Insert(acv);
             }
         }
 
+
+        public static AtomConfigModel Get(string code)
+        {
+            var now = DateTime.Now;
+            var result = SonFact.Cur.Top<AtomConfig, AtomConfigModel>(t=>t.ConfigCode == code && t.Enable==true && now >= t.StartTime && now <= t.EndTime);
+            return result;
+        }
 
     }
 }
