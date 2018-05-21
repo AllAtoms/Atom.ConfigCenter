@@ -43,5 +43,8 @@ namespace Atom.ConfigCenter.Model
         [Description("添加时间")]
         public DateTime AddTime { get; set; }
 
+        public List<AtomConfigModel> AtomChildren { get; set; }
+
+
     }
 }

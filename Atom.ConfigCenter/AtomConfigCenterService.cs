@@ -14,6 +14,7 @@ namespace Atom.ConfigCenter
         {
             SonFact.init(dbConnStr);
             AtomConfigCenterManage.CheckOrCreateDb();
+
         }
 
         public string this[string code]
@@ -21,10 +22,12 @@ namespace Atom.ConfigCenter
             get
             {
                 var res = AtomConfigCenterManage.Get(code);
+                if (res == null) return string.Empty;
                 return res.ConfigValue;
             }
         }
-        public static AtomConfigCenterService Conf= new AtomConfigCenterService();
+
+        public static AtomConfigCenterService Conf = new AtomConfigCenterService();
 
         public static long Set(string code, string value, string pCode = null, string desc = null, string cType = null, DateTime? st = null, DateTime? et = null, string extVal = null, bool isAdd = false)
         {
@@ -68,7 +71,7 @@ namespace Atom.ConfigCenter
             return AtomConfigCenterManage.SetCate(acc, isAdd);
         }
 
-        public static long SetVal(string cateCode, string value, int relId=0, string extVal = null, DateTime? st = null, DateTime? et = null, bool isAdd = false)
+        public static long SetVal(string cateCode, string value, int relId = 0, string extVal = null, DateTime? st = null, DateTime? et = null, bool isAdd = false)
         {
             if (string.IsNullOrWhiteSpace(cateCode))
                 throw new Exception("编码不可为空");
@@ -88,6 +91,20 @@ namespace Atom.ConfigCenter
             };
 
             return AtomConfigCenterManage.SetVal(acv, isAdd);
+        }
+
+        public static AtomConfigModel Get(string code)
+        {
+            var res = AtomConfigCenterManage.Get(code);
+            if (res == null) return null;
+            return res;
+        }
+
+        public static AtomConfigModel Gets(string code)
+        {
+            var res = AtomConfigCenterManage.Gets(code);
+            if (res == null) return null;
+            return res;
         }
 
     }

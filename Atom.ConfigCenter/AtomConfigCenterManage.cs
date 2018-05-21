@@ -12,8 +12,6 @@ namespace Atom.ConfigCenter
     {
         private static readonly object locker = new object();
 
-
-
         public static bool CheckOrCreateDb()
         {
             var resB = SonFact.Cur.CreateTable<AtomConfig>();
@@ -61,7 +59,7 @@ namespace Atom.ConfigCenter
             lock (locker)
             {
                 var existCate = SonFact.Cur.Top<AtomCateConfig>(t => t.CateCode == acv.CateCode);
-                if(existCate==null) throw new Exception("配置Cate不存在");
+                if (existCate == null) throw new Exception("配置Cate不存在");
 
                 var exist = SonFact.Cur.Top<AtomConfigValue>(t => t.CateCode == acv.CateCode && t.RelId == acv.RelId);
                 if (exist != null && isAdd) throw new Exception("配置已经存在");
@@ -76,13 +74,40 @@ namespace Atom.ConfigCenter
             }
         }
 
-
         public static AtomConfigModel Get(string code)
         {
             var now = DateTime.Now;
-            var result = SonFact.Cur.Top<AtomConfig, AtomConfigModel>(t=>t.ConfigCode == code && t.Enable==true && now >= t.StartTime && now <= t.EndTime);
+            var result = SonFact.Cur.Top<AtomConfig, AtomConfigModel>(t => t.ConfigCode == code && t.Enable == true);
+
+            if (result.StartTime != null && result.StartTime.Value > now) return null;
+            if (result.EndTime != null && result.EndTime.Value < now) return null;
+
             return result;
         }
+
+        public static AtomConfigModel Gets(string parentCode)
+        {
+            var now = DateTime.Now;
+            var result = SonFact.Cur.Top<AtomConfig, AtomConfigModel>(t => t.ConfigCode == parentCode && t.Enable == true);
+            if (result.StartTime != null && result.StartTime.Value > now) return null;
+            if (result.EndTime != null && result.EndTime.Value < now) return null;
+            if (result == null) return null;
+
+            result.AtomChildren = new List<AtomConfigModel>();
+
+            var list = SonFact.Cur.FindMany<AtomConfig, AtomConfigModel>(t=>t.ParentCode== result.ConfigCode && t.Enable==true);
+
+            foreach (var item in list)
+            {
+                if (item.StartTime != null && item.StartTime.Value > now) continue;
+                if (item.EndTime != null && item.EndTime.Value < now) continue;
+                result.AtomChildren.Add(item);
+            }
+
+            return result;
+        }
+
+
 
     }
 }

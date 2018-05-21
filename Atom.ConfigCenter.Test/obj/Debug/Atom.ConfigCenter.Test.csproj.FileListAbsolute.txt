@@ -17,3 +17,4 @@ E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\bin\Debug\Microsoft.VisualStu
 E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
 E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\obj\Debug\Atom.ConfigCenter.Test.dll
 E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\obj\Debug\Atom.ConfigCenter.Test.pdb
+E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\obj\Debug\Atom.ConfigCenter.Test.csproj.CopyComplete

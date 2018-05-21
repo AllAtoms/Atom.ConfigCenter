@@ -12,11 +12,14 @@ namespace Atom.ConfigCenter.Test
         {
             AtomConfigCenterService.Init("conn");
 
-            var r0 = AtomConfigCenterService.Set("Version","1805052131",extVal: "180505_ext111111111",isAdd:true);
-            var r1 = AtomConfigCenterService.Set(Guid.NewGuid().ToString("N"),"180505");
-            var r2 = AtomConfigCenterService.Set(Guid.NewGuid().ToString("N"), "180505",desc:"配置页面后缀");
-            var r3 = AtomConfigCenterService.Set(Guid.NewGuid().ToString("N"), "180505","PCC","default2","配置页面后缀",DateTime.Now.AddDays(-3),DateTime.Now.AddDays(3),"exetext");
-            var r4 = AtomConfigCenterService.Set("dpl_h5_version", "123456","pppp","这是描述的啦", "分类ID", DateTime.Now.AddDays(-3), DateTime.Now.AddDays(3), "exetext");
+            //var r0 = AtomConfigCenterService.Set("version","1805052131",extVal: "180505_ext111111111",isAdd:true);
+            var r1 = AtomConfigCenterService.Set("PCC", "180505");
+            var r2 = AtomConfigCenterService.Set("verstion1", "180505","PCC", desc:"配置页面后缀");
+            var r3 = AtomConfigCenterService.Set("verstion2", "180505","PCC","default2","配置页面后缀",DateTime.Now.AddDays(-3),DateTime.Now.AddDays(3),"exetext");
+            var r4 = AtomConfigCenterService.Set("verstion3", "123456","pppp","这是描述的啦", "分类ID", null, DateTime.Now.AddDays(3), "exetext");
+            var r5 = AtomConfigCenterService.Set("verstion4", "123456","pppp","这是描述的啦", "分类ID", DateTime.Now.AddDays(-3), null, "exetext");
+            var r6 = AtomConfigCenterService.Set("verstion5", "123456","pppp","这是描述的啦", "分类ID", DateTime.Now.AddDays(1), DateTime.Now.AddDays(3), "exetext");
+            var r7 = AtomConfigCenterService.Set("verstion6", "123456","pppp","这是描述的啦", "分类ID", DateTime.Now.AddDays(-2), DateTime.Now.AddDays(-2), "exetext");
 
             Assert.IsTrue(true);
         }
@@ -47,8 +50,20 @@ namespace Atom.ConfigCenter.Test
         public void Get()
         {
             AtomConfigCenterService.Init("conn");
-
+             
             var r0 = AtomConfigCenterService.Conf["Version"];
+            var r1 = AtomConfigCenterService.Get("e41436957ff9479e9d7609b5900889b7");
+            var r2 = AtomConfigCenterService.Get("e41436957ff9479e9d7609b5900889b7");
+
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod]
+        public void Gets()
+        {
+            AtomConfigCenterService.Init("conn");
+
+            var r0 = AtomConfigCenterService.Gets("PCC");
 
             Assert.IsTrue(true);
         }
