@@ -107,5 +107,23 @@ namespace Atom.ConfigCenter
             return res;
         }
 
-    }
+        public static AtomCateConfigModel GetCate(string pCode)
+        {
+            var result = AtomConfigCenterManage.GetCate(pCode);
+            return result;
+        }
+
+        public static AtomConfigValueModel GetVal(string code, int relId)
+        {
+            var result = AtomConfigCenterManage.GetVal(code, relId);
+            return result;
+        }
+
+        public static List<AtomConfigValueModel> GetVals(string pCode, int relId)
+        {
+            var result = AtomConfigCenterManage.GetVals(pCode, relId);
+            return result;
+        }
+
+        }
 }
