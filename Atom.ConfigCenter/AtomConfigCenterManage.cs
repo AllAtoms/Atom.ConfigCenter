@@ -76,21 +76,30 @@ namespace Atom.ConfigCenter
             }
         }
 
-        //TODO:缓存策略
         public static AtomConfigModel Get(string code)
         {
+            //缓存策略
+            var key = "atom_conf_get_" + code;
+            var exist = AtomConfigCacheManage.GetIfExist<AtomConfigModel>(key);
+            if (exist != null) return exist;
+
             var now = DateTime.Now;
             var result = SonFact.Cur.Top<AtomConfig, AtomConfigModel>(t => t.ConfigCode == code && t.Enable == true);
 
             if (result.StartTime != null && result.StartTime.Value > now) return null;
             if (result.EndTime != null && result.EndTime.Value < now) return null;
 
+            if (result != null) AtomConfigCacheManage.AddCache(code, result);
             return result;
         }
 
-        //TODO:缓存策略
         public static AtomConfigModel Gets(string parentCode)
         {
+            //缓存策略
+            var key = "atom_conf_gets_" + parentCode;
+            var exist = AtomConfigCacheManage.GetIfExist<AtomConfigModel>(key);
+            if (exist != null) return exist;
+
             var now = DateTime.Now;
             var result = SonFact.Cur.Top<AtomConfig, AtomConfigModel>(t => t.ConfigCode == parentCode && t.Enable == true);
             if (result.StartTime != null && result.StartTime.Value > now) return null;
@@ -108,24 +117,34 @@ namespace Atom.ConfigCenter
                 result.AtomChildren.Add(item);
             }
 
+            if (result != null) AtomConfigCacheManage.AddCache(key, result);
             return result;
         }
 
         //TODO:缓存策略
         public static AtomCateConfigModel GetCate(string pCode)
         {
+            var key = "atom_conf_getcate_" + pCode;
+            var exist = AtomConfigCacheManage.GetIfExist<AtomCateConfigModel>(key);
+            if (exist != null) return exist;
+
             var result = SonFact.Cur.Top<AtomCateConfig, AtomCateConfigModel>(t => t.CateCode == pCode && t.Enable == true);
             if (result == null) return null;
 
             var cates = SonFact.Cur.FindMany<AtomCateConfig, AtomCateConfigModel>(t => t.ParentCateCode == pCode && t.Enable == true);
             result.CateChildren = cates;
 
+            if (result != null) AtomConfigCacheManage.AddCache(key, result);
             return result;
         }
 
         //TODO:缓存策略
         public static AtomConfigValueModel GetVal(string code, int relId)
         {
+            var key = "atom_conf_getval_" + code + "_" + relId;
+            var exist = AtomConfigCacheManage.GetIfExist<AtomConfigValueModel>(key);
+            if (exist != null) return exist;
+
             var now = DateTime.Now;
             var result = SonFact.Cur.Top<AtomConfigValue, AtomConfigValueModel>(t => t.CateCode == code && t.RelId == relId && t.Enable == true);
 
@@ -140,12 +159,17 @@ namespace Atom.ConfigCenter
             var cate = SonFact.Cur.Find<AtomCateConfig>(result.ConfigValueId);
             result.CateName = cate.CateName;
 
+            if (result != null) AtomConfigCacheManage.AddCache(key, result);
             return result;
         }
 
         //TODO:缓存策略
         public static List<AtomConfigValueModel> GetVals(string pCode, int relId)
         {
+            var key = "atom_conf_getvals_" + pCode + "_" + relId;
+            var exist = AtomConfigCacheManage.GetIfExist<List<AtomConfigValueModel>>(key);
+            if (exist != null) return exist;
+
             var now = DateTime.Now;
             var result = new List<AtomConfigValueModel>();
 
@@ -154,11 +178,11 @@ namespace Atom.ConfigCenter
                 return null;
 
             foreach (var item in cate.CateChildren)
-                result.Add(GetVal(item.CateCode,relId));
+                result.Add(GetVal(item.CateCode, relId));
 
+            if (result != null) AtomConfigCacheManage.AddCache(key, result);
             return result;
         }
-
 
     }
 }
