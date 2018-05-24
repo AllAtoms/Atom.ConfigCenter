@@ -121,9 +121,9 @@ namespace Atom.ConfigCenter
             return result;
         }
 
-        //TODO:缓存策略
         public static AtomCateConfigModel GetCate(string pCode)
         {
+            //缓存策略
             var key = "atom_conf_getcate_" + pCode;
             var exist = AtomConfigCacheManage.GetIfExist<AtomCateConfigModel>(key);
             if (exist != null) return exist;
@@ -138,9 +138,9 @@ namespace Atom.ConfigCenter
             return result;
         }
 
-        //TODO:缓存策略
         public static AtomConfigValueModel GetVal(string code, int relId)
         {
+            //缓存策略
             var key = "atom_conf_getval_" + code + "_" + relId;
             var exist = AtomConfigCacheManage.GetIfExist<AtomConfigValueModel>(key);
             if (exist != null) return exist;
@@ -163,9 +163,9 @@ namespace Atom.ConfigCenter
             return result;
         }
 
-        //TODO:缓存策略
         public static List<AtomConfigValueModel> GetVals(string pCode, int relId)
         {
+            //缓存策略
             var key = "atom_conf_getvals_" + pCode + "_" + relId;
             var exist = AtomConfigCacheManage.GetIfExist<List<AtomConfigValueModel>>(key);
             if (exist != null) return exist;

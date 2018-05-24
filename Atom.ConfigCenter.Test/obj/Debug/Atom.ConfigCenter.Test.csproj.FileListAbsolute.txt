@@ -1,5 +1,3 @@
-E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\obj\Debug\Atom.ConfigCenter.Test.csprojResolveAssemblyReference.cache
-E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\obj\Debug\Atom.ConfigCenter.Test.csproj.CoreCompileInputs.cache
 E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -15,5 +13,7 @@ E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\bin\Debug\Microsoft.VisualStu
 E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\bin\Debug\Atom.ConfigCenter.pdb
 E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\obj\Debug\Atom.ConfigCenter.Test.csprojResolveAssemblyReference.cache
+E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\obj\Debug\Atom.ConfigCenter.Test.csproj.CoreCompileInputs.cache
 E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\obj\Debug\Atom.ConfigCenter.Test.dll
 E:\GitHub\Atom.ConfigCenter\Atom.ConfigCenter.Test\obj\Debug\Atom.ConfigCenter.Test.pdb
